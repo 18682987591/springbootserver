@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <classPathEntry location="C:\Users\troy1\.m2\repository\org\postgresql\postgresql\42.2.1\postgresql-42.2.1.jar" />
+
+    <context id="blog">
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://localhost:5432/blog"
+                        userId="postgres" password="19901212">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.global.mybatis.blog" targetProject="D:\workspace\IdeaProjects\springbootserver\global\src\main\java">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mybatis.blog" targetProject="D:\workspace\IdeaProjects\springbootserver\global\src\main\resources">
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.global.mybatis.blog" targetProject="D:\workspace\IdeaProjects\springbootserver\global\src\main\java">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <table schema="public" tableName="blog_info" domainObjectName="BlogInfoDto" enableInsert="true"
+               enableDeleteByPrimaryKey="true"
+               enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false">
+            <!--<ignoreColumn column="blog_id" delimitedColumnName=""/>-->
+            <generatedKey column="blog_id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+    </context>
+
+    <context id="user">
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://localhost:5432/user"
+                        userId="postgres" password="19901212">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.global.mybatis.user" targetProject="D:\workspace\IdeaProjects\springbootserver\global\src\main\java">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mybatis.user" targetProject="D:\workspace\IdeaProjects\springbootserver\global\src\main\resources">
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.global.mybatis.user" targetProject="D:\workspace\IdeaProjects\springbootserver\global\src\main\java">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <table schema="public" tableName="user_info" domainObjectName="UserInfoDto" enableInsert="true"
+               enableDeleteByPrimaryKey="true"
+               enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false">
+            <!--<ignoreColumn column="user_id" delimitedColumnName=""/>-->
+            <generatedKey column="user_id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

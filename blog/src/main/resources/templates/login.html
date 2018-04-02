@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Loading Bootstrap -->
+    <link th:href="@{/dist/css/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link th:href="@{/dist/css/flat-ui.css}" rel="stylesheet">
+    <link th:href="@{/docs/assets/css/demo.css}" rel="stylesheet">
+
+    <script src="../static/dist/js/vendor/html5shiv.js"></script>
+    <script src="../static/dist/js/vendor/respond.min.js"></script>
+
+</head>
+
+<body>
+    <style>
+        body {
+            padding-top: 200px;
+            padding-bottom: 200px;
+        }
+    </style>
+    <div class="container">
+        <div class="row" >
+            <div class="col-md-12">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="inputAccount" class="col-lg-2 control-label">账号:</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="inputAccount" placeholder="请输入账号或手机号" th:value="${usr.account}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-lg-2 control-label">密码:</label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="请输入密码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <label class="checkbox" for="checkbox3">
+                                <input type="checkbox" data-toggle="checkbox" value="" id="checkbox3" required>
+                                记住我
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <p>
+                            <div class="btn-group btn-group-justified">
+                                <button type="submit" class="btn btn-success" href="/checkuser" th:href="@{/product/list(account=${param},password=${})}">登陆</button>
+                                <button type="cancel" class="btn btn-danger">取消</button>
+                                <button type="register" class="btn btn-warning">我要注册</button>
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div>
+</body>
+</html>

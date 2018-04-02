@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.global.mybatis.user.UserInfoDtoMapper" >
+  <resultMap id="BaseResultMap" type="com.global.mybatis.user.UserInfoDto" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="group_id" property="groupId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_pwd" property="userPwd" jdbcType="VARCHAR" />
+    <result column="user_phone" property="userPhone" jdbcType="INTEGER" />
+    <result column="user_sex" property="userSex" jdbcType="VARCHAR" />
+    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+    <result column="user_mark" property="userMark" jdbcType="INTEGER" />
+    <result column="user_rank_id" property="userRankId" jdbcType="INTEGER" />
+    <result column="user_last_login_ip" property="userLastLoginIp" jdbcType="OTHER" />
+    <result column="user_birthday" property="userBirthday" jdbcType="DATE" />
+    <result column="user_description" property="userDescription" jdbcType="VARCHAR" />
+    <result column="user_image_url" property="userImageUrl" jdbcType="VARCHAR" />
+    <result column="user_school" property="userSchool" jdbcType="VARCHAR" />
+    <result column="user_register_time" property="userRegisterTime" jdbcType="TIMESTAMP" />
+    <result column="user_register_ip" property="userRegisterIp" jdbcType="OTHER" />
+    <result column="user_last_update_time" property="userLastUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="user_blood_type" property="userBloodType" jdbcType="CHAR" />
+    <result column="user_says" property="userSays" jdbcType="VARCHAR" />
+    <result column="user_lock" property="userLock" jdbcType="BIT" />
+    <result column="user_freeze" property="userFreeze" jdbcType="BIT" />
+    <result column="user_power" property="userPower" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, group_id, user_name, user_pwd, user_phone, user_sex, user_email, user_mark, 
+    user_rank_id, user_last_login_ip, user_birthday, user_description, user_image_url, 
+    user_school, user_register_time, user_register_ip, user_last_update_time, user_blood_type, 
+    user_says, user_lock, user_freeze, user_power
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from public.user_info
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from public.user_info
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.global.mybatis.user.UserInfoDto" useGeneratedKeys="true" keyProperty="userId" >
+    insert into public.user_info (group_id, user_name, user_pwd, 
+      user_phone, user_sex, user_email, 
+      user_mark, user_rank_id, user_last_login_ip, 
+      user_birthday, user_description, user_image_url, 
+      user_school, user_register_time, user_register_ip, 
+      user_last_update_time, user_blood_type, user_says, 
+      user_lock, user_freeze, user_power
+      )
+    values (#{groupId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, 
+      #{userPhone,jdbcType=INTEGER}, #{userSex,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, 
+      #{userMark,jdbcType=INTEGER}, #{userRankId,jdbcType=INTEGER}, #{userLastLoginIp,jdbcType=OTHER}, 
+      #{userBirthday,jdbcType=DATE}, #{userDescription,jdbcType=VARCHAR}, #{userImageUrl,jdbcType=VARCHAR}, 
+      #{userSchool,jdbcType=VARCHAR}, #{userRegisterTime,jdbcType=TIMESTAMP}, #{userRegisterIp,jdbcType=OTHER}, 
+      #{userLastUpdateTime,jdbcType=TIMESTAMP}, #{userBloodType,jdbcType=CHAR}, #{userSays,jdbcType=VARCHAR}, 
+      #{userLock,jdbcType=BIT}, #{userFreeze,jdbcType=BIT}, #{userPower,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.global.mybatis.user.UserInfoDto" useGeneratedKeys="true" keyProperty="userId" >
+    insert into public.user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userPwd != null" >
+        user_pwd,
+      </if>
+      <if test="userPhone != null" >
+        user_phone,
+      </if>
+      <if test="userSex != null" >
+        user_sex,
+      </if>
+      <if test="userEmail != null" >
+        user_email,
+      </if>
+      <if test="userMark != null" >
+        user_mark,
+      </if>
+      <if test="userRankId != null" >
+        user_rank_id,
+      </if>
+      <if test="userLastLoginIp != null" >
+        user_last_login_ip,
+      </if>
+      <if test="userBirthday != null" >
+        user_birthday,
+      </if>
+      <if test="userDescription != null" >
+        user_description,
+      </if>
+      <if test="userImageUrl != null" >
+        user_image_url,
+      </if>
+      <if test="userSchool != null" >
+        user_school,
+      </if>
+      <if test="userRegisterTime != null" >
+        user_register_time,
+      </if>
+      <if test="userRegisterIp != null" >
+        user_register_ip,
+      </if>
+      <if test="userLastUpdateTime != null" >
+        user_last_update_time,
+      </if>
+      <if test="userBloodType != null" >
+        user_blood_type,
+      </if>
+      <if test="userSays != null" >
+        user_says,
+      </if>
+      <if test="userLock != null" >
+        user_lock,
+      </if>
+      <if test="userFreeze != null" >
+        user_freeze,
+      </if>
+      <if test="userPower != null" >
+        user_power,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="groupId != null" >
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null" >
+        #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null" >
+        #{userPhone,jdbcType=INTEGER},
+      </if>
+      <if test="userSex != null" >
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userMark != null" >
+        #{userMark,jdbcType=INTEGER},
+      </if>
+      <if test="userRankId != null" >
+        #{userRankId,jdbcType=INTEGER},
+      </if>
+      <if test="userLastLoginIp != null" >
+        #{userLastLoginIp,jdbcType=OTHER},
+      </if>
+      <if test="userBirthday != null" >
+        #{userBirthday,jdbcType=DATE},
+      </if>
+      <if test="userDescription != null" >
+        #{userDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="userImageUrl != null" >
+        #{userImageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchool != null" >
+        #{userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegisterTime != null" >
+        #{userRegisterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userRegisterIp != null" >
+        #{userRegisterIp,jdbcType=OTHER},
+      </if>
+      <if test="userLastUpdateTime != null" >
+        #{userLastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userBloodType != null" >
+        #{userBloodType,jdbcType=CHAR},
+      </if>
+      <if test="userSays != null" >
+        #{userSays,jdbcType=VARCHAR},
+      </if>
+      <if test="userLock != null" >
+        #{userLock,jdbcType=BIT},
+      </if>
+      <if test="userFreeze != null" >
+        #{userFreeze,jdbcType=BIT},
+      </if>
+      <if test="userPower != null" >
+        #{userPower,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.global.mybatis.user.UserInfoDto" >
+    update public.user_info
+    <set >
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null" >
+        user_pwd = #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null" >
+        user_phone = #{userPhone,jdbcType=INTEGER},
+      </if>
+      <if test="userSex != null" >
+        user_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userMark != null" >
+        user_mark = #{userMark,jdbcType=INTEGER},
+      </if>
+      <if test="userRankId != null" >
+        user_rank_id = #{userRankId,jdbcType=INTEGER},
+      </if>
+      <if test="userLastLoginIp != null" >
+        user_last_login_ip = #{userLastLoginIp,jdbcType=OTHER},
+      </if>
+      <if test="userBirthday != null" >
+        user_birthday = #{userBirthday,jdbcType=DATE},
+      </if>
+      <if test="userDescription != null" >
+        user_description = #{userDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="userImageUrl != null" >
+        user_image_url = #{userImageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchool != null" >
+        user_school = #{userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegisterTime != null" >
+        user_register_time = #{userRegisterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userRegisterIp != null" >
+        user_register_ip = #{userRegisterIp,jdbcType=OTHER},
+      </if>
+      <if test="userLastUpdateTime != null" >
+        user_last_update_time = #{userLastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userBloodType != null" >
+        user_blood_type = #{userBloodType,jdbcType=CHAR},
+      </if>
+      <if test="userSays != null" >
+        user_says = #{userSays,jdbcType=VARCHAR},
+      </if>
+      <if test="userLock != null" >
+        user_lock = #{userLock,jdbcType=BIT},
+      </if>
+      <if test="userFreeze != null" >
+        user_freeze = #{userFreeze,jdbcType=BIT},
+      </if>
+      <if test="userPower != null" >
+        user_power = #{userPower,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.global.mybatis.user.UserInfoDto" >
+    update public.user_info
+    set group_id = #{groupId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_pwd = #{userPwd,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=INTEGER},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_mark = #{userMark,jdbcType=INTEGER},
+      user_rank_id = #{userRankId,jdbcType=INTEGER},
+      user_last_login_ip = #{userLastLoginIp,jdbcType=OTHER},
+      user_birthday = #{userBirthday,jdbcType=DATE},
+      user_description = #{userDescription,jdbcType=VARCHAR},
+      user_image_url = #{userImageUrl,jdbcType=VARCHAR},
+      user_school = #{userSchool,jdbcType=VARCHAR},
+      user_register_time = #{userRegisterTime,jdbcType=TIMESTAMP},
+      user_register_ip = #{userRegisterIp,jdbcType=OTHER},
+      user_last_update_time = #{userLastUpdateTime,jdbcType=TIMESTAMP},
+      user_blood_type = #{userBloodType,jdbcType=CHAR},
+      user_says = #{userSays,jdbcType=VARCHAR},
+      user_lock = #{userLock,jdbcType=BIT},
+      user_freeze = #{userFreeze,jdbcType=BIT},
+      user_power = #{userPower,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>
